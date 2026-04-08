@@ -28,7 +28,7 @@ export function softwareApplicationSchema() {
     offers: {
       "@type": "Offer",
       category: "FreeTrial",
-      description: `${siteConfig.trial.days}-day free trial — no credit card required`,
+      description: `${siteConfig.trial.days}-day free trial, no credit card required`,
       eligibleCustomerType: "https://schema.org/Practitioner",
       availability: "https://schema.org/InStock",
     },

@@ -7,7 +7,7 @@ export const trialSignupSchema = z.object({
   email: z.string().email("Please enter a valid email"),
   phone: z.string().min(7, "Required"),
   providers: z.string().min(1, "Please select"),
-  // Plan selection (Options AI–style) — annual or monthly
+  // Plan selection (Options AI–style), annual or monthly
   plan: z.enum(["annual", "monthly"], {
     errorMap: () => ({ message: "Please choose a plan" }),
   }),

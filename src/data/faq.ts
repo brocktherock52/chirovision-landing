@@ -19,7 +19,7 @@ export const faqs: FaqItem[] = [
   {
     question: "What hardware or software do I need?",
     answer:
-      "Any modern computer (Windows, Mac, Chromebook, or Linux) with a current version of Chrome, Safari, Firefox, or Edge. ChiroVision runs in the browser — there is nothing to install.",
+      "Any modern computer (Windows, Mac, Chromebook, or Linux) with a current version of Chrome, Safari, Firefox, or Edge. ChiroVision runs in the browser, there is nothing to install.",
   },
   {
     question: "Is patient data uploaded anywhere?",

@@ -51,7 +51,7 @@ export const features: Feature[] = [
     icon: Move,
     title: "Range of Motion",
     description:
-      "Built-in ROM measurement and longitudinal tracking — no separate software, no manual logs.",
+      "Built-in ROM measurement and longitudinal tracking, no separate software, no manual logs.",
   },
   {
     icon: PersonStanding,

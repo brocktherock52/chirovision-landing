@@ -7,7 +7,7 @@ const badges = [
   },
   {
     icon: Lock,
-    label: "Local-only image processing — nothing uploaded",
+    label: "Local-only image processing, nothing uploaded",
   },
   {
     icon: ShieldCheck,

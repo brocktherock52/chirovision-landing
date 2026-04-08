@@ -29,7 +29,7 @@ export function Hero() {
             <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
               ChiroVision is the diagnostic imaging, posture analysis, and patient management
               platform built by a doctor with 40 years at the table. Image comparison, DICOM
-              support, interactive X-rays, billing — all in your browser, all processed locally.
+              support, interactive X-rays, billing, all in your browser, all processed locally.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">

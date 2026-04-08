@@ -17,7 +17,7 @@ import { siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 /**
- * Combined trial signup + plan picker — patterned after Options AI's two-step
+ * Combined trial signup + plan picker, patterned after Options AI's two-step
  * "Create account / Choose plan" layout. Single form, two visible steps,
  * Annual vs Monthly cards, single submit button.
  */
@@ -44,7 +44,7 @@ export function TrialSignupForm() {
     console.log("[ChiroVision trial signup]", data);
     await new Promise((r) => setTimeout(r, 600));
     toast.success(
-      "You're in! Check your email — Dr. Feintuch's team will activate your trial within one business day.",
+      "You're in! Check your email, Dr. Feintuch's team will activate your trial within one business day.",
       { duration: 6000 }
     );
     reset();
@@ -58,7 +58,7 @@ export function TrialSignupForm() {
         <div className="mx-auto max-w-6xl">
           <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft">
             <div className="grid lg:grid-cols-[7fr,5fr]">
-              {/* LEFT — Form (Step 1 + Step 2) */}
+              {/* LEFT, Form (Step 1 + Step 2) */}
               <div className="p-8 sm:p-12">
                 <div className="flex items-center gap-2">
                   <Sparkles className="h-4 w-4 text-primary" />
@@ -74,7 +74,7 @@ export function TrialSignupForm() {
                 </p>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
-                  {/* STEP 1 — Account info */}
+                  {/* STEP 1, Account info */}
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       Step 1
@@ -157,7 +157,7 @@ export function TrialSignupForm() {
                     </div>
                   </div>
 
-                  {/* STEP 2 — Choose plan */}
+                  {/* STEP 2, Choose plan */}
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       Step 2
@@ -254,7 +254,7 @@ export function TrialSignupForm() {
                 </form>
               </div>
 
-              {/* RIGHT — Marketing panel */}
+              {/* RIGHT, Marketing panel */}
               <div className="relative hidden bg-hero-gradient p-12 text-white lg:flex lg:flex-col lg:justify-between">
                 <div>
                   <h3 className="font-serif text-3xl font-semibold tracking-tight text-balance">
@@ -262,7 +262,7 @@ export function TrialSignupForm() {
                   </h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
                     ChiroVision is the diagnostic imaging and patient management tool built by a
-                    chiropractor who codes. Try every feature free for 10 days — no card required.
+                    chiropractor who codes. Try every feature free for 10 days, no card required.
                   </p>
                 </div>
 
@@ -281,15 +281,15 @@ export function TrialSignupForm() {
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                    <span>Full feature access during trial — no tier limits</span>
+                    <span>Full feature access during trial, no tier limits</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                    <span>Local-only image processing — patient data never leaves your computer</span>
+                    <span>Local-only image processing, patient data never leaves your computer</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-                    <span>Browser-based — nothing to install, works on any computer</span>
+                    <span>Browser-based, nothing to install, works on any computer</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />

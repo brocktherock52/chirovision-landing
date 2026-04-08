@@ -1,12 +1,12 @@
 /**
- * ChiroVision — single source of truth for site identity, contact, and links.
+ * ChiroVision, single source of truth for site identity, contact, and links.
  * The trial signup form, header CTA, and footer all read from this file.
  */
 export const siteConfig = {
   name: "ChiroVision",
   tagline: "Imaging & diagnostics for the modern chiropractic practice.",
   description:
-    "ChiroVision is a complete imaging, diagnostic, and patient management platform built for chiropractors. Image comparison, DICOM support, interactive X-rays, posture analysis, voice navigation, and HCFA 1500 billing — with strict local-only image processing.",
+    "ChiroVision is a complete imaging, diagnostic, and patient management platform built for chiropractors. Image comparison, DICOM support, interactive X-rays, posture analysis, voice navigation, and HCFA 1500 billing, with strict local-only image processing.",
   url: "https://chirovision.com",
   ogImage: "/og-chirovision.jpg",
 
@@ -31,7 +31,7 @@ export const siteConfig = {
     { label: "FAQ", href: "#faq" },
   ],
 
-  // Trial + pricing tiers — Options AI–style two-tier display
+  // Trial + pricing tiers, Options AI–style two-tier display
   trial: {
     days: 10,
     requiresCard: false,
@@ -44,7 +44,7 @@ export const siteConfig = {
       monthlyEquivalent: "$79",
       annualTotal: "$948",
       savings: "Save 20%",
-      tagline: "Best value — pay yearly and save",
+      tagline: "Best value, pay yearly and save",
       recommended: true,
     },
     monthly: {

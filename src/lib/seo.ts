@@ -9,8 +9,8 @@ export interface SeoProps {
 
 export function buildSeo({ title, description, path = "/", image }: SeoProps = {}) {
   const fullTitle = title
-    ? `${title} — ${siteConfig.name}`
-    : `${siteConfig.name} — Imaging & Diagnostics for Chiropractors`;
+    ? `${title}, ${siteConfig.name}`
+    : `${siteConfig.name}, Imaging & Diagnostics for Chiropractors`;
   const url = `${siteConfig.url}${path}`;
   const ogImage = image || `${siteConfig.url}${siteConfig.ogImage}`;
   return {
