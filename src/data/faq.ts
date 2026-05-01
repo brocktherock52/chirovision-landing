@@ -29,6 +29,6 @@ export const faqs: FaqItem[] = [
   {
     question: "Can I cancel anytime?",
     answer:
-      "Yes. There are no annual contracts, no cancellation fees, and no termination penalties. Cancel any time and you keep access until the end of the billing period.",
+      "Yes. Cancel anytime. Cancellations take effect on the monthly anniversary of the date you enrolled, and you keep full access until then. No cancellation fees, no termination penalties.",
   },
 ];

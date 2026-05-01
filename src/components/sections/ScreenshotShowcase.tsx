@@ -25,8 +25,8 @@ export function ScreenshotShowcase() {
       <div className="container">
         <SectionHeading
           eyebrow="See it in action"
-          title="Built by a doctor who actually reads films."
-          description="Every screen exists because a chiropractor needed it during a patient visit, not because a designer thought it would look nice."
+          title="Built by a chiropractor who actually reads and marks his own films."
+          description="Every screen exists because a chiropractor needed it during a patient visit, not because a designer thought it would look nice. Reshow your patients their x-rays every week, so they are reminded of the goals you set for their care."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">

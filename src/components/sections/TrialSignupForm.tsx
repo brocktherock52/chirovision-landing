@@ -262,7 +262,8 @@ export function TrialSignupForm() {
                   </h3>
                   <p className="mt-4 text-base leading-relaxed text-white/90">
                     ChiroVision is the diagnostic imaging and patient management tool built by a
-                    chiropractor who codes. Try every feature free for 10 days, no card required.
+                    chiropractor dedicated to helping patients make structural and functional
+                    once-in-a-lifetime changes. Try every feature free for 10 days, no card required.
                   </p>
                 </div>
 

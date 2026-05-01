@@ -32,8 +32,8 @@ export function PricingTrial() {
       <div className="container">
         <SectionHeading
           eyebrow="Pricing"
-          title="Simple pricing. Cancel anytime."
-          description={`Try ChiroVision free for ${siteConfig.trial.days} days. After your trial, choose the plan that fits your practice. No setup fees, no contracts.`}
+          title="Full-featured chiropractic analysis."
+          description={`Simple pricing. Cancel anytime. Try ChiroVision free for ${siteConfig.trial.days} days, then choose the plan that fits your practice. No setup fees, no contracts.`}
         />
 
         <div className="mx-auto mt-14 grid max-w-4xl gap-6 md:grid-cols-2">

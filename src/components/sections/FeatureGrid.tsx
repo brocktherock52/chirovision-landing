@@ -11,7 +11,7 @@ export function FeatureGrid() {
         <SectionHeading
           eyebrow="Features"
           title="Everything you need to read, document, and bill an exam."
-          description="Ten capabilities a chiropractor actually uses, in one tool. No tab-switching. No second monitor. No data leaving your computer."
+          description="Ten capabilities that chiropractors can actually use to validate patient care plans, in one tool. No tab-switching. No second monitor. No data leaving your computer."
         />
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

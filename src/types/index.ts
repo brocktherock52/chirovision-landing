@@ -18,10 +18,10 @@ export interface FaqItem {
 }
 
 export interface Testimonial {
-  /** All testimonials are placeholders. */
-  isPlaceholder: true;
+  /** Remaining unverified placeholder testimonials still awaiting real quotes. */
+  isPlaceholder?: boolean;
   quote: string;
   author: string;
-  practice: string;
+  practice?: string;
   location: string;
 }

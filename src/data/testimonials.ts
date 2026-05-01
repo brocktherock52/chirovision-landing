@@ -1,17 +1,11 @@
 import type { Testimonial } from "@/types";
 
-/**
- * PLACEHOLDER chiropractor testimonials.
- * TODO: replace with real testimonial
- */
 export const testimonials: Testimonial[] = [
   {
-    isPlaceholder: true,
     quote:
-      "ChiroVision changed how I show patients their progress. The before/after comparison sells the next visit before I even ask.",
-    author: "Dr. Sarah Martinez, DC",
-    practice: "Spinal Health Center",
-    location: "Austin, TX",
+      "I am glad I lived long enough to see what I have been explaining to patients for almost 75 years!",
+    author: "Dr. Cericoli, DC",
+    location: "Brooklyn, NY",
   },
   {
     isPlaceholder: true,
