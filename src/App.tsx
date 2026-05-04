@@ -1,6 +1,7 @@
 import { Toaster } from "sonner";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { StickyTrialBar } from "@/components/shared/StickyTrialBar";
 import LandingPage from "@/pages/LandingPage";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <LandingPage />
       </main>
       <Footer />
+      <StickyTrialBar />
       <Toaster position="top-right" richColors closeButton />
     </div>
   );

@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import { UnsplashImage } from "@/components/shared/UnsplashImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { Reveal, Stagger, staggerItem } from "@/components/shared/Reveal";
 
 const screenshots = [
   {
@@ -23,23 +25,30 @@ export function ScreenshotShowcase() {
   return (
     <section className="bg-muted/30 py-20 sm:py-28">
       <div className="container">
-        <SectionHeading
-          eyebrow="See it in action"
-          title="Built by a chiropractor who actually reads and marks his own films."
-          description="Every screen exists because a chiropractor needed it during a patient visit, not because a designer thought it would look nice. Reshow your patients their x-rays every week, so they are reminded of the goals you set for their care."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="See it in action"
+            title="Built by a chiropractor who actually reads and marks his own films."
+            description="Every screen exists because a chiropractor needed it during a patient visit, not because a designer thought it would look nice. Reshow your patients their x-rays every week, so they are reminded of the goals you set for their care."
+          />
+        </Reveal>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
+        <Stagger className="mt-14 grid gap-6 md:grid-cols-3" stagger={0.1}>
           {screenshots.map((s) => (
-            // TODO: replace with real ChiroVision screenshot
-            <div key={s.label} className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft">
+            <motion.div
+              key={s.label}
+              variants={staggerItem}
+              whileHover={{ y: -4 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
+              className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+            >
               <UnsplashImage src={s.src} alt={s.alt} className="aspect-video object-cover" />
               <div className="p-4 text-center">
                 <p className="text-sm font-semibold text-foreground">{s.label}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

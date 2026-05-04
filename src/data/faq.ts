@@ -31,4 +31,9 @@ export const faqs: FaqItem[] = [
     answer:
       "Yes. Cancel anytime. Cancellations take effect on the monthly anniversary of the date you enrolled, and you keep full access until then. No cancellation fees, no termination penalties.",
   },
+  {
+    question: "How is payment processed once I subscribe?",
+    answer:
+      "Payments are processed by Authorize.Net through Picture Perfect Health, LLC's secure merchant account. Authorize.Net is PCI DSS Level 1 compliant, the highest level of payment security. Your card never touches our servers, and you can cancel or change methods at any time.",
+  },
 ];
