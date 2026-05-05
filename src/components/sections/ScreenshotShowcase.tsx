@@ -1,22 +1,22 @@
 import { motion } from "framer-motion";
-import { UnsplashImage } from "@/components/shared/UnsplashImage";
+import { AssetImage } from "@/components/shared/AssetImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal, Stagger, staggerItem } from "@/components/shared/Reveal";
 
 const screenshots = [
   {
-    src: "https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80",
-    alt: "Interactive X-ray analysis on a laptop screen",
+    src: "/screenshot-xray.jpg",
+    alt: "Interactive cervical X-ray analysis on a clinical desk",
     label: "Interactive X-ray analysis",
   },
   {
-    src: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1200&q=80",
-    alt: "Posture analysis dashboard",
+    src: "/screenshot-posture.jpg",
+    alt: "Posture analysis dashboard reference photo",
     label: "Posture analysis dashboard",
   },
   {
-    src: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80",
-    alt: "Patient management interface",
+    src: "/screenshot-patient.jpg",
+    alt: "Patient management interface used during a consult",
     label: "Patient management interface",
   },
 ];
@@ -42,7 +42,7 @@ export function ScreenshotShowcase() {
               transition={{ type: "spring", stiffness: 300, damping: 22 }}
               className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
             >
-              <UnsplashImage src={s.src} alt={s.alt} className="aspect-video object-cover" />
+              <AssetImage src={s.src} alt={s.alt} className="aspect-video object-cover" />
               <div className="p-4 text-center">
                 <p className="text-sm font-semibold text-foreground">{s.label}</p>
               </div>

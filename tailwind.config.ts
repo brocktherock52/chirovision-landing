@@ -51,6 +51,10 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        ink: {
+          DEFAULT: "hsl(var(--ink))",
+          foreground: "hsl(var(--ink-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -67,9 +71,11 @@ const config: Config = {
       },
       backgroundImage: {
         "hero-gradient":
-          "linear-gradient(135deg, hsl(192 91% 36%) 0%, hsl(188 86% 30%) 50%, hsl(160 84% 39%) 100%)",
+          "linear-gradient(135deg, hsl(192 80% 32%) 0%, hsl(188 70% 26%) 50%, hsl(30 92% 56%) 100%)",
         "section-gradient":
-          "linear-gradient(180deg, hsl(192 91% 96%) 0%, hsl(0 0% 100%) 100%)",
+          "linear-gradient(180deg, hsl(39 33% 96%) 0%, hsl(0 0% 100%) 100%)",
+        "ink-radial":
+          "radial-gradient(circle at top right, hsl(30 92% 56% / 0.18), transparent 60%)",
       },
       keyframes: {
         "accordion-down": {

@@ -268,14 +268,16 @@ export function TrialSignupForm() {
                 </div>
 
                 <div className="my-8">
-                  {/* TODO: replace with real ChiroVision screenshot */}
                   <div className="overflow-hidden rounded-xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur">
-                    <img
-                      src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80"
-                      alt="ChiroVision interface preview"
-                      loading="lazy"
-                      className="aspect-[4/3] w-full object-cover"
-                    />
+                    <picture>
+                      <source type="image/webp" srcSet="/hero-chirovision-laptop.webp" />
+                      <img
+                        src="/hero-chirovision-laptop.jpg"
+                        alt="ChiroVision interface preview"
+                        loading="lazy"
+                        className="aspect-[4/3] w-full object-cover"
+                      />
+                    </picture>
                   </div>
                 </div>
 
