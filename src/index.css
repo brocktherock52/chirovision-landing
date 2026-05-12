@@ -85,11 +85,23 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  @media (min-width: 768px) {
+    body { font-size: 18px; }
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif tracking-tight;
     font-feature-settings: "ss01" 1, "ss02" 1;
+  }
+
+  /* Hide default cursor only on fine-pointer devices, so the custom one shows */
+  @media (hover: hover) and (pointer: fine) {
+    html, body { cursor: none; }
+    a, button, [role="button"], input, textarea, select, label { cursor: none; }
   }
 
   :focus-visible {

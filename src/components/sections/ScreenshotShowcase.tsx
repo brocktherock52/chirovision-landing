@@ -7,9 +7,12 @@ import {
   AnimatePresence,
   type MotionValue,
 } from "framer-motion";
+import { Expand } from "lucide-react";
 import { AssetImage } from "@/components/shared/AssetImage";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
+import { Lightbox } from "@/components/shared/Lightbox";
+import { SplitChars } from "@/components/shared/SplitChars";
 
 interface Slide {
   src: string;
@@ -74,6 +77,7 @@ function useMotionValueState<T>(mv: MotionValue<T>): T {
 export function ScreenshotShowcase() {
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -92,7 +96,7 @@ export function ScreenshotShowcase() {
   );
 
   return (
-    <section className="bg-muted/30 py-16 sm:py-24">
+    <section className="bg-muted/30 py-20 sm:py-28">
       <div className="container">
         <Reveal>
           <SectionHeading
@@ -105,17 +109,20 @@ export function ScreenshotShowcase() {
 
       {reduce ? (
         <div className="container mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {SLIDES.map((s) => (
-            <div
+          {SLIDES.map((s, i) => (
+            <button
+              type="button"
               key={s.label}
-              className="overflow-hidden rounded-2xl border border-border bg-card shadow-soft"
+              onClick={() => setLightboxIdx(i)}
+              className="group overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft"
+              data-cursor="view"
             >
               <AssetImage src={s.src} alt={s.alt} className="aspect-[4/3] object-cover object-top" />
               <div className="p-5">
                 <p className="font-serif text-base font-semibold text-foreground">{s.label}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{s.caption}</p>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       ) : (
@@ -129,24 +136,31 @@ export function ScreenshotShowcase() {
               <div className="grid items-center gap-10 lg:grid-cols-[5fr,7fr]">
                 <ActiveCaption progressIndex={progressIndex} />
 
-                <div className="relative overflow-hidden rounded-3xl border border-border bg-card/40 shadow-soft">
+                <div className="relative overflow-hidden rounded-3xl border border-border bg-card/40 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.35)]">
                   <motion.div
                     className="flex"
                     style={{ x: trackX, width: `${SLIDES.length * 100}%` }}
                   >
-                    {SLIDES.map((s) => (
-                      <div
+                    {SLIDES.map((s, i) => (
+                      <button
+                        type="button"
+                        onClick={() => setLightboxIdx(i)}
                         key={s.label}
-                        className="relative flex-shrink-0"
+                        className="relative flex-shrink-0 cursor-pointer"
                         style={{ width: `${100 / SLIDES.length}%` }}
+                        data-cursor="view"
+                        aria-label={`Open ${s.label} preview`}
                       >
                         <AssetImage
                           src={s.src}
                           alt={s.alt}
-                          className="aspect-[4/3] w-full object-cover object-top"
+                          className="aspect-[4/3] w-full object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
                         />
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
-                      </div>
+                        <span className="pointer-events-none absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
+                          <Expand className="h-4 w-4" />
+                        </span>
+                      </button>
                     ))}
                   </motion.div>
 
@@ -157,6 +171,14 @@ export function ScreenshotShowcase() {
           </div>
         </div>
       )}
+
+      <Lightbox
+        open={lightboxIdx !== null}
+        src={lightboxIdx !== null ? SLIDES[lightboxIdx].src : null}
+        alt={lightboxIdx !== null ? SLIDES[lightboxIdx].alt : undefined}
+        caption={lightboxIdx !== null ? `${SLIDES[lightboxIdx].label}. ${SLIDES[lightboxIdx].caption}` : undefined}
+        onClose={() => setLightboxIdx(null)}
+      />
     </section>
   );
 }
@@ -166,22 +188,26 @@ function ActiveCaption({ progressIndex }: { progressIndex: MotionValue<number> }
   const slide = SLIDES[active] || SLIDES[0];
 
   return (
-    <div className="relative min-h-[260px]">
-      <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+    <div className="relative min-h-[280px]">
+      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
         {String(active + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")} . {slide.meta}
       </p>
       <AnimatePresence mode="wait">
         <motion.div
           key={slide.label}
-          initial={{ opacity: 0, y: 18, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={{ opacity: 0, y: -18, filter: "blur(8px)" }}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -18 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h3 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            {slide.label}
-          </h3>
-          <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground">
+          <SplitChars
+            as="h3"
+            text={slide.label}
+            className="font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl"
+            duration={0.6}
+            stagger={0.022}
+          />
+          <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
             {slide.caption}
           </p>
         </motion.div>
@@ -204,7 +230,7 @@ function DotIndicator({
         <span
           key={i}
           className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
-            i === active ? "w-8 bg-primary" : "w-1.5 bg-foreground/25"
+            i === active ? "w-10 bg-primary" : "w-1.5 bg-foreground/25"
           }`}
         />
       ))}

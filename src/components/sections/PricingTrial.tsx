@@ -2,7 +2,6 @@ import { useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
@@ -12,6 +11,10 @@ import { cn } from "@/lib/utils";
 
 type Period = "annual" | "monthly";
 
+/**
+ * Midnight pricing section. Ink-on-cream editorial drama, side-by-side
+ * comparison style with the annual plan getting a glow ring + ribbon.
+ */
 export function PricingTrial() {
   const reduce = useReducedMotion();
   const [period, setPeriod] = useState<Period>("annual");
@@ -34,19 +37,37 @@ export function PricingTrial() {
   ];
 
   return (
-    <section id="pricing" className="bg-background py-20 sm:py-28">
+    <section
+      id="pricing"
+      className="relative isolate overflow-hidden bg-foreground py-28 text-background sm:py-36"
+    >
+      {/* Ambient glow */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-32 left-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-primary/25 blur-3xl"
+        animate={reduce ? undefined : { x: [0, 40, 0], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -bottom-32 right-1/4 -z-10 h-[600px] w-[600px] rounded-full bg-accent/25 blur-3xl"
+        animate={reduce ? undefined : { x: [0, -40, 0], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+      />
+
       <div className="container">
         <Reveal>
           <SectionHeading
+            variant="dark"
             eyebrow="Pricing"
             title="Full-featured chiropractic analysis."
-            description={`Simple pricing. Cancel anytime. Try ChiroVision free for ${siteConfig.trial.days} days, then choose the plan that fits your practice. No setup fees, no contracts.`}
+            description={`Try ChiroVision free for ${siteConfig.trial.days} days, then choose the plan that fits your practice. No setup fees, no contracts.`}
           />
         </Reveal>
 
         {/* Period toggle */}
-        <div className="mt-10 flex justify-center">
-          <div className="relative inline-flex rounded-full border border-foreground/10 bg-card p-1 shadow-soft">
+        <div className="mt-12 flex justify-center">
+          <div className="relative inline-flex rounded-full border border-background/15 bg-background/5 p-1 backdrop-blur">
             {(["annual", "monthly"] as const).map((p) => {
               const active = period === p;
               return (
@@ -54,15 +75,16 @@ export function PricingTrial() {
                   key={p}
                   type="button"
                   onClick={() => setPeriod(p)}
+                  data-cursor="link"
                   className={cn(
-                    "relative z-10 rounded-full px-5 py-2 text-sm font-semibold transition-colors",
-                    active ? "text-primary-foreground" : "text-foreground/70 hover:text-foreground",
+                    "relative z-10 rounded-full px-6 py-2.5 text-sm font-semibold transition-colors",
+                    active ? "text-foreground" : "text-background/70 hover:text-background",
                   )}
                 >
                   {active && (
                     <motion.span
                       layoutId="pricing-pill"
-                      className="absolute inset-0 -z-10 rounded-full bg-primary shadow-soft"
+                      className="absolute inset-0 -z-10 rounded-full bg-background shadow-soft"
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -73,54 +95,52 @@ export function PricingTrial() {
           </div>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-xl">
+        <div className="mx-auto mt-12 max-w-xl">
           <motion.div
             initial={{ opacity: 0, y: reduce ? 0 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
           >
-            <Card
-              className={cn(
-                "relative flex h-full flex-col overflow-hidden p-8 shadow-soft sm:p-10",
-                period === "annual" && "border-2 border-primary",
-              )}
-            >
-              {/* Glow ring on annual */}
-              {period === "annual" && !reduce && (
-                <motion.div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-1 -z-10 rounded-[1.1rem] bg-gradient-to-tr from-primary/40 via-accent/40 to-secondary/40 blur-xl"
-                  animate={{ opacity: [0.45, 0.75, 0.45] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                />
-              )}
+            {/* Glow ring on annual */}
+            {period === "annual" && !reduce && (
+              <motion.div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-2 -z-10 rounded-[1.75rem] bg-gradient-to-tr from-primary/60 via-accent/60 to-secondary/60 blur-2xl"
+                animate={{ opacity: [0.4, 0.75, 0.4] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              />
+            )}
 
+            <div className="relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-background/15 bg-background p-10 text-foreground shadow-[0_50px_120px_-30px_rgba(0,0,0,0.5)] sm:p-12">
               {plan.recommended && (
-                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground">
+                <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-accent-foreground shadow-soft">
                   Best value . Save 20%
                 </Badge>
               )}
 
-              <h3 className="font-serif text-2xl font-semibold text-foreground">{plan.label}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{plan.tagline}</p>
+              <h3 className="font-serif text-3xl font-semibold tracking-tight text-foreground">
+                {plan.label}
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground">{plan.tagline}</p>
 
-              <div className="mt-6 flex items-baseline gap-1 overflow-hidden">
+              <div className="mt-8 flex items-baseline gap-1 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={plan.monthlyEquivalent}
-                    initial={{ opacity: 0, y: reduce ? 0 : 18 }}
+                    initial={{ opacity: 0, y: reduce ? 0 : 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: reduce ? 0 : -18 }}
-                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                    className="font-serif text-5xl font-semibold text-foreground"
+                    exit={{ opacity: 0, y: reduce ? 0 : -20 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="font-serif text-7xl font-semibold leading-none tracking-tight text-foreground"
                   >
                     {plan.monthlyEquivalent}
                   </motion.span>
                 </AnimatePresence>
-                <span className="text-sm text-muted-foreground">/month</span>
+                <span className="text-base text-muted-foreground">/month</span>
               </div>
-              <p className="mt-1 text-sm font-semibold text-primary">{plan.savings}</p>
+              <p className="mt-2 text-sm font-semibold text-primary">{plan.savings}</p>
               <p className="mt-1 text-xs text-muted-foreground">
                 Billed{" "}
                 {period === "annual"
@@ -129,27 +149,31 @@ export function PricingTrial() {
                 .{period === "annual" && " Cancel anytime."}
               </p>
 
-              <ul className="mt-6 flex-1 space-y-3 text-sm">
+              <div className="my-8 h-px bg-foreground/10" />
+
+              <ul className="flex-1 space-y-3 text-base">
                 {includedFeatures.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-foreground">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <li key={feature} className="flex items-start gap-3 text-foreground">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary">
+                      <Check className="h-3 w-3" />
+                    </span>
                     <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-8">
-                <MagneticButton distance={0.25} radius={120}>
-                  <Button onClick={scrollToForm} size="lg" className="w-full">
+              <div className="mt-10">
+                <MagneticButton distance={0.25} radius={140}>
+                  <Button onClick={scrollToForm} size="lg" className="h-14 w-full rounded-full text-base" data-cursor="link">
                     Start 10-day free trial
                   </Button>
                 </MagneticButton>
               </div>
-            </Card>
+            </div>
           </motion.div>
         </div>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
+        <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-background/65">
           All trials include full feature access. No credit card required to start. We never
           auto-charge a card we do not have.
         </p>
