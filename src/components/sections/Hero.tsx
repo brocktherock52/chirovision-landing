@@ -126,6 +126,7 @@ export function Hero() {
                     className="inline-block"
                   >
                     {word}
+                    {i < HEADLINE_PRIMARY.length - 1 && <span className="sr-only"> </span>}
                   </motion.span>
                 ))}
               </span>
@@ -141,6 +142,7 @@ export function Hero() {
                       className="inline-block bg-gradient-to-tr from-primary via-secondary to-accent bg-clip-text text-transparent"
                     >
                       {word}
+                      {i < HEADLINE_ACCENT.length - 1 && <span className="sr-only"> </span>}
                     </motion.span>
                   ))}
                 </span>
