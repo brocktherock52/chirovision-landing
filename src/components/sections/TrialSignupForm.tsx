@@ -418,7 +418,7 @@ export function TrialSignupForm() {
                       <source type="image/webp" srcSet="/hero-chirovision-laptop.webp" />
                       <img
                         src="/hero-chirovision-laptop.jpg"
-                        alt="ChiroVision interface preview"
+                        alt="ChiroVision chiropractic imaging software preview, dashboard view with every module on one screen"
                         loading="lazy"
                         className="aspect-[4/3] w-full object-cover"
                       />

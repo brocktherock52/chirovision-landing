@@ -263,7 +263,7 @@ export function Hero() {
             >
               <AssetImage
                 src="/hero-chirovision.jpg"
-                alt="Doctor reviewing a cervical spine x-ray on a clean tablet interface"
+                alt="ChiroVision chiropractic imaging software dashboard with cervical, lumbar, full x-ray, overlay, posture, range of motion, image and video comparison, DICOM, and HCFA 1500 billing modules"
                 priority
                 className="aspect-[4/5] object-cover sm:aspect-[5/6] md:aspect-[4/5]"
               />

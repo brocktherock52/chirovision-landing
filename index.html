@@ -1,38 +1,397 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0891b2" />
-    <meta name="description" content="ChiroVision, advanced imaging and diagnostics for chiropractors. Image comparison with annotation, DICOM support, interactive X-rays, posture analysis, billing. 10-day free trial." />
+    <meta name="theme-color" content="#127E94" />
+    <meta name="description" content="ChiroVision is chiropractic imaging software with image comparison, DICOM scan review, interactive cervical and lumbar X-rays, posture analysis, voice navigation, patient management, and HCFA 1500 billing. Local-only processing. 10-day free trial, no credit card." />
+    <meta name="keywords" content="chiropractic imaging software, chiropractic software, DICOM viewer for chiropractors, posture analysis software, HCFA 1500 chiropractic billing, range of motion software, chiropractic EHR, patient management for chiropractors, ChiroVision, Picture Perfect Health" />
+    <meta name="author" content="Picture Perfect Health, LLC" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 
-    <!-- Open Graph defaults -->
+    <link rel="canonical" href="https://chirovision.com/" />
+    <link rel="alternate" hreflang="en-US" href="https://chirovision.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://chirovision.com/" />
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="ChiroVision" />
-    <meta property="og:title" content="ChiroVision, Imaging & Diagnostics for Chiropractors" />
-    <meta property="og:description" content="Advanced imaging and diagnostics for the modern chiropractic practice. 10-day free trial. No credit card." />
-    <meta property="og:image" content="/og-chirovision.jpg" />
-    <meta property="og:url" content="https://chirovision.com" />
+    <meta property="og:title" content="ChiroVision, Imaging and Diagnostics for Chiropractors" />
+    <meta property="og:description" content="Advanced chiropractic imaging software. Image comparison, DICOM, interactive X-rays, posture analysis, HCFA 1500 billing. 10-day free trial. No credit card." />
+    <meta property="og:image" content="https://chirovision.com/og-chirovision.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ChiroVision chiropractic imaging software dashboard with every module on one screen" />
+    <meta property="og:url" content="https://chirovision.com/" />
+    <meta property="og:locale" content="en_US" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="ChiroVision, Imaging & Diagnostics for Chiropractors" />
-    <meta name="twitter:description" content="Advanced imaging and diagnostics for the modern chiropractic practice. 10-day free trial." />
-    <meta name="twitter:image" content="/og-chirovision.jpg" />
+    <meta name="twitter:title" content="ChiroVision, Imaging and Diagnostics for Chiropractors" />
+    <meta name="twitter:description" content="Advanced chiropractic imaging software. 10-day free trial. No credit card." />
+    <meta name="twitter:image" content="https://chirovision.com/og-chirovision.jpg" />
+    <meta name="twitter:image:alt" content="ChiroVision chiropractic imaging software dashboard" />
 
-    <!-- Fonts -->
+    <!-- Performance hints -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="dns-prefetch" href="https://va.vercel-scripts.com" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://va.vercel-scripts.com" crossorigin />
+    <link rel="preload" as="image" href="/hero-chirovision.webp" type="image/webp" />
+
+    <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <title>ChiroVision, Imaging & Diagnostics for Chiropractors</title>
+    <title>ChiroVision, Chiropractic Imaging Software with DICOM, Posture, and HCFA 1500 Billing</title>
+
+    <!-- Inline critical CSS to mask the pre-hydrate SEO skeleton until React mounts.
+         Crawlers that ignore CSS (Googlebot mostly does, but indexes hidden text too)
+         still get the full skeleton content for ranking. JS-enabled human users
+         see only the hydrated React app. -->
+    <style>
+      .seo-skeleton {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      html, body { background: hsl(39 33% 96%); }
+    </style>
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ChiroVision",
+      "alternateName": "ChiroVision Chiropractic Imaging Software",
+      "description": "ChiroVision is a complete chiropractic imaging software platform with image comparison, DICOM scan review, interactive cervical and lumbar X-rays, range of motion, posture analysis, voice navigation, patient management, and HCFA 1500 billing. All image processing happens locally in the browser.",
+      "url": "https://chirovision.com/",
+      "applicationCategory": "MedicalApplication",
+      "applicationSubCategory": "Chiropractic Imaging Software",
+      "operatingSystem": "Web Browser (Chrome, Safari, Firefox, Edge)",
+      "softwareVersion": "2026",
+      "screenshot": "https://chirovision.com/screenshots/dashboard.jpg",
+      "image": "https://chirovision.com/og-chirovision.jpg",
+      "inLanguage": "en-US",
+      "author": {
+        "@type": "Organization",
+        "name": "Picture Perfect Health, LLC",
+        "url": "https://pictureperfecthealth.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Picture Perfect Health, LLC",
+        "url": "https://pictureperfecthealth.com"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "ChiroVision Annual Plan",
+          "price": "79.00",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "79.00",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "billingIncrement": 1,
+            "unitText": "month, billed annually"
+          },
+          "availability": "https://schema.org/InStock",
+          "category": "Subscription",
+          "eligibleCustomerType": "https://schema.org/Practitioner"
+        },
+        {
+          "@type": "Offer",
+          "name": "ChiroVision Monthly Plan",
+          "price": "99.00",
+          "priceCurrency": "USD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "99.00",
+            "priceCurrency": "USD",
+            "billingDuration": "P1M",
+            "billingIncrement": 1,
+            "unitText": "month"
+          },
+          "availability": "https://schema.org/InStock",
+          "category": "Subscription",
+          "eligibleCustomerType": "https://schema.org/Practitioner"
+        },
+        {
+          "@type": "Offer",
+          "name": "ChiroVision 10-day Free Trial",
+          "price": "0.00",
+          "priceCurrency": "USD",
+          "category": "FreeTrial",
+          "description": "10-day free trial with full feature access. No credit card required.",
+          "availability": "https://schema.org/InStock"
+        }
+      ],
+      "featureList": [
+        "Image comparison with annotation",
+        "DICOM scan review in the browser",
+        "Video motion analysis",
+        "Interactive cervical X-ray",
+        "Interactive lumbar X-ray",
+        "Full spine visualization",
+        "Range of motion measurement",
+        "Posture analysis",
+        "Voice navigation and biometric authentication",
+        "Patient management database",
+        "HCFA 1500 billing",
+        "Local-only image processing"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: Organization (Picture Perfect Health) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Picture Perfect Health, LLC",
+      "alternateName": "PPH",
+      "url": "https://pictureperfecthealth.com",
+      "logo": "https://chirovision.com/logo.svg",
+      "foundingDate": "2006-06",
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Eric Hal Feintuch"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-800-438-9355",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": ["en"]
+      },
+      "sameAs": [
+        "https://pictureperfecthealth.com"
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: Person (Dr. Eric Hal Feintuch) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dr. Eric Hal Feintuch",
+      "honorificSuffix": "D.C., CCSD",
+      "jobTitle": "Doctor of Chiropractic, Founder",
+      "description": "Forty year practicing chiropractor and founder of Picture Perfect Health, LLC, the makers of ChiroVision chiropractic imaging software.",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "New York Chiropractic College",
+        "foundingDate": "1919"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Picture Perfect Health, LLC",
+        "url": "https://pictureperfecthealth.com"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is included in the 10-day free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Full access to every ChiroVision feature: image comparison, DICOM support, video motion analysis, interactive X-rays, ROM, posture analysis, voice navigation, patient management, and HCFA 1500 billing. No tier limits during the trial."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to enter a credit card to start the trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. We do not collect payment information until after your 10-day trial ends and you decide to continue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after the 10 days are up?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can choose to subscribe at our standard monthly rate, request an extended evaluation, or simply walk away. We will never auto-charge a card we do not have."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What hardware or software do I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Any modern computer (Windows, Mac, Chromebook, or Linux) with a current version of Chrome, Safari, Firefox, or Edge. ChiroVision runs in the browser, there is nothing to install."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is patient data uploaded anywhere?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All images and patient data are processed locally in your browser. Nothing is uploaded to our servers. ChiroVision is designed with HIPAA-aware privacy practices from the ground up."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel anytime?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Cancel anytime. Cancellations take effect on the monthly anniversary of the date you enrolled, and you keep full access until then. No cancellation fees, no termination penalties."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is payment processed once I subscribe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Payments are processed by Authorize.Net through Picture Perfect Health, LLC's secure merchant account. Authorize.Net is PCI DSS Level 1 compliant, the highest level of payment security. Your card never touches our servers, and you can cancel or change methods at any time."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://chirovision.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Features", "item": "https://chirovision.com/#features" },
+        { "@type": "ListItem", "position": 3, "name": "Product Tour", "item": "https://chirovision.com/#tour" },
+        { "@type": "ListItem", "position": 4, "name": "How It Works", "item": "https://chirovision.com/#how-it-works" },
+        { "@type": "ListItem", "position": 5, "name": "Pricing", "item": "https://chirovision.com/#pricing" },
+        { "@type": "ListItem", "position": 6, "name": "Start Trial", "item": "https://chirovision.com/#start-trial" },
+        { "@type": "ListItem", "position": 7, "name": "FAQ", "item": "https://chirovision.com/#faq" },
+        { "@type": "ListItem", "position": 8, "name": "Methodology", "item": "https://chirovision.com/#methodology" }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: WebSite (with SearchAction placeholder) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ChiroVision",
+      "url": "https://chirovision.com/",
+      "description": "Chiropractic imaging software with DICOM, posture analysis, range of motion, and HCFA 1500 billing.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Picture Perfect Health, LLC"
+      },
+      "inLanguage": "en-US"
+    }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!--
+        Static SEO skeleton, visible to crawlers that do not execute JavaScript.
+        React's createRoot().render() replaces this entire #root subtree on hydrate,
+        so end users see the live React app while Googlebot/Bingbot read this copy.
+        Visually hidden via .seo-skeleton class so JS-enabled humans never see a flash.
+      -->
+      <div class="seo-skeleton">
+      <header>
+        <p><strong>ChiroVision</strong>, a product of Picture Perfect Health, LLC. Founded by Dr. Eric Hal Feintuch, D.C., CCSD.</p>
+        <h1>ChiroVision, Advanced Imaging and Diagnostics for the Modern Chiropractic Practice</h1>
+        <p>10-day free trial. No credit card. Cancel anytime.</p>
+        <nav>
+          <a href="#features">Features</a> .
+          <a href="#tour">Product Tour</a> .
+          <a href="#how-it-works">How It Works</a> .
+          <a href="#pricing">Pricing</a> .
+          <a href="#start-trial">Start Trial</a> .
+          <a href="#faq">FAQ</a> .
+          <a href="#methodology">Methodology</a>
+        </nav>
+      </header>
+      <main>
+        <section id="hero">
+          <h2>Chiropractic Imaging Software, Built by a 40-Year DC</h2>
+          <p>ChiroVision is a complete chiropractic imaging software platform: side-by-side image comparison with annotation, DICOM scan review in the browser, interactive cervical and lumbar X-rays with measurement overlays, range of motion measurement, multi-angle posture analysis, voice navigation, an integrated patient management database, and HCFA 1500 billing. Every image is processed locally in your browser. No patient data leaves your computer.</p>
+          <p>Try every feature free for ten days. No credit card. Built and supported by Picture Perfect Health, LLC.</p>
+        </section>
+        <section id="features-seo">
+          <h2>Features</h2>
+          <ul>
+            <li><strong>Image Comparison.</strong> Side-by-side before and after with zoom, rotation, and freehand annotation.</li>
+            <li><strong>DICOM Support.</strong> Open and analyze DICOM scan files directly in the browser, no conversion, no third-party viewer.</li>
+            <li><strong>Video Motion Analysis.</strong> Frame-by-frame video comparison for gait, range of motion, and rehabilitation tracking.</li>
+            <li><strong>Interactive Cervical X-ray.</strong> Cervical spine visualization with measurement tools and standard reference overlays.</li>
+            <li><strong>Interactive Lumbar X-ray.</strong> Lumbar spine measurement and overlay tools designed around how chiropractors actually read films.</li>
+            <li><strong>Range of Motion.</strong> Built-in ROM measurement and longitudinal tracking, no separate software, no manual logs.</li>
+            <li><strong>Posture Analysis.</strong> Multi-angle posture assessment with anatomic landmark detection and printable patient reports.</li>
+            <li><strong>Voice Navigation.</strong> Hands-free voice commands and biometric voice-print sign in.</li>
+            <li><strong>Patient Management.</strong> Integrated patient database with photo storage, insurance card scans, and visit history.</li>
+            <li><strong>HCFA 1500 Billing.</strong> Generate compliant HCFA 1500 forms and manage billing inside the same workflow as your imaging.</li>
+          </ul>
+        </section>
+        <section id="pricing-seo">
+          <h2>Pricing</h2>
+          <p>Simple, flat pricing. Cancel anytime. No setup fees, no contracts.</p>
+          <ul>
+            <li><strong>Annual.</strong> 79 USD per month, billed annually as 948 USD. Save 20 percent.</li>
+            <li><strong>Monthly.</strong> 99 USD per month. Cancel anytime.</li>
+            <li><strong>Free Trial.</strong> 10 days, full feature access, no credit card required.</li>
+          </ul>
+          <p>Payments are processed by Authorize.Net through Picture Perfect Health, LLC. Authorize.Net is PCI DSS Level 1 compliant.</p>
+        </section>
+        <section id="methodology-seo">
+          <h2>Methodology and HIPAA-Aware Design</h2>
+          <p>ChiroVision is engineered around a single principle: patient images never leave the practitioner's computer. All image decoding, annotation, overlay computation, range-of-motion math, and DICOM rendering happens inside the browser sandbox on the chiropractor's own machine. The ChiroVision servers do not store, transmit, or back up patient images. This local-only processing model is the foundation of our HIPAA-aware design.</p>
+          <p>The clinical logic was specified by Dr. Eric Hal Feintuch, a chiropractor with more than forty years of practice and tens of thousands of films read. Measurement tools, reference angles, and patient-education visualizations reflect how chiropractors actually read and explain films, not how software engineers imagine they do.</p>
+        </section>
+        <section id="faq-seo">
+          <h2>Frequently Asked Questions</h2>
+          <dl>
+            <dt>What is included in the 10-day free trial?</dt>
+            <dd>Full access to every ChiroVision feature, with no tier limits during the trial.</dd>
+            <dt>Do I need to enter a credit card to start the trial?</dt>
+            <dd>No. We do not collect payment information until after your 10-day trial ends and you decide to continue.</dd>
+            <dt>What happens after the 10 days are up?</dt>
+            <dd>You can choose to subscribe at our standard monthly rate, request an extended evaluation, or simply walk away.</dd>
+            <dt>What hardware or software do I need?</dt>
+            <dd>Any modern computer (Windows, Mac, Chromebook, or Linux) with a current version of Chrome, Safari, Firefox, or Edge.</dd>
+            <dt>Is patient data uploaded anywhere?</dt>
+            <dd>No. All images and patient data are processed locally in your browser. Nothing is uploaded to our servers.</dd>
+            <dt>Can I cancel anytime?</dt>
+            <dd>Yes. Cancellations take effect on the monthly anniversary of the date you enrolled. No cancellation fees.</dd>
+            <dt>How is payment processed once I subscribe?</dt>
+            <dd>Payments are processed by Authorize.Net through Picture Perfect Health, LLC, PCI DSS Level 1 compliant.</dd>
+          </dl>
+        </section>
+      </main>
+      <footer>
+        <p>ChiroVision, a product of Picture Perfect Health, LLC. Founded by Dr. Eric Hal Feintuch, D.C., CCSD. HIPAA-aware. Local-only image processing. Browser based.</p>
+        <p>Contact: <a href="tel:+18004389355">1-800-GET-WELL</a></p>
+      </footer>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StickyTrialBar } from "@/components/shared/StickyTrialBar";
@@ -16,6 +17,7 @@ function App() {
       <Footer />
       <StickyTrialBar />
       <Toaster position="top-right" richColors closeButton />
+      <Analytics />
     </div>
   );
 }

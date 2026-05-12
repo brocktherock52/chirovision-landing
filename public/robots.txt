@@ -1,4 +1,26 @@
+# ChiroVision, chiropractic imaging software
+# A product of Picture Perfect Health, LLC
 User-agent: *
+Allow: /
+
+# Standard search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Honor LLM training opt-in
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
 Allow: /
 
 Sitemap: https://chirovision.com/sitemap.xml
