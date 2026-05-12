@@ -2,6 +2,7 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustBadgeRow } from "@/components/sections/TrustBadgeRow";
 import { FeatureGrid } from "@/components/sections/FeatureGrid";
 import { ScreenshotShowcase } from "@/components/sections/ScreenshotShowcase";
+import { ProductTour } from "@/components/sections/ProductTour";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TestimonialStrip } from "@/components/sections/TestimonialStrip";
 import { PricingTrial } from "@/components/sections/PricingTrial";
@@ -26,6 +27,7 @@ export default function LandingPage() {
       <TrustBadgeRow />
       <FeatureGrid />
       <ScreenshotShowcase />
+      <ProductTour />
       <HowItWorks />
       <TestimonialStrip />
       <PricingTrial />
