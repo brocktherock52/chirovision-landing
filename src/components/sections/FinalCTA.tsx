@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MagneticButton } from "@/components/shared/MagneticButton";
 import { siteConfig } from "@/lib/site-config";
 
 export function FinalCTA() {
@@ -10,17 +11,25 @@ export function FinalCTA() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground sm:py-24">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-hero-gradient opacity-95"
-      />
+    <section className="relative isolate overflow-hidden bg-primary py-20 text-primary-foreground sm:py-24">
+      {/* Slowly drifting hero gradient */}
       <motion.div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-24 left-1/2 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl"
+        className="pointer-events-none absolute inset-0 -z-10 bg-hero-gradient opacity-95"
+        animate={reduce ? undefined : { backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
+        transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+        style={{ backgroundSize: "200% 200%" }}
+      />
+      {/* Soft moving spot */}
+      <motion.div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-white/10 blur-3xl"
         animate={reduce ? undefined : { scale: [1, 1.06, 1], opacity: [0.6, 0.8, 0.6] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
+      {/* Grain overlay */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 grain" />
+
       <div className="container relative">
         <motion.div
           className="mx-auto max-w-3xl text-center"
@@ -40,19 +49,21 @@ export function FinalCTA() {
             years at the table.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              onClick={() => scrollTo("start-trial")}
-              className="bg-background text-primary hover:bg-background/90"
-            >
-              Start Free Trial
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Button>
+            <MagneticButton distance={0.3} radius={150}>
+              <Button
+                size="lg"
+                onClick={() => scrollTo("start-trial")}
+                className="rounded-full bg-background px-7 text-primary hover:bg-background/90"
+              >
+                Start Free Trial
+                <ArrowRight className="ml-1 h-4 w-4" />
+              </Button>
+            </MagneticButton>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10"
+              className="rounded-full border-white/30 bg-transparent text-white hover:bg-white/10"
             >
               <a href={siteConfig.phoneHref}>
                 <Phone className="h-4 w-4" />

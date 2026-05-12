@@ -5,6 +5,7 @@ import { ScreenshotShowcase } from "@/components/sections/ScreenshotShowcase";
 import { ProductTour } from "@/components/sections/ProductTour";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TestimonialStrip } from "@/components/sections/TestimonialStrip";
+import { FoundersLetter } from "@/components/sections/FoundersLetter";
 import { PricingTrial } from "@/components/sections/PricingTrial";
 import { TrialSignupForm } from "@/components/sections/TrialSignupForm";
 import { FAQ } from "@/components/sections/FAQ";
@@ -30,6 +31,7 @@ export default function LandingPage() {
       <ProductTour />
       <HowItWorks />
       <TestimonialStrip />
+      <FoundersLetter />
       <PricingTrial />
       <TrialSignupForm />
       <FAQ />
