@@ -28,18 +28,9 @@ export function FoundersLetter() {
             </div>
 
             <div className="mt-8 flex items-center gap-4">
-              <picture>
-                <source type="image/webp" srcSet="/eric-real.webp" />
-                <img
-                  src="/eric-real.jpg"
-                  alt="Dr. Eric Hal Feintuch, D.C., CCSD, founder of Picture Perfect Health, LLC"
-                  loading="lazy"
-                  className="h-12 w-12 rounded-full border hairline-strong object-cover"
-                  onError={(e) => {
-                    (e.currentTarget as HTMLImageElement).style.display = "none";
-                  }}
-                />
-              </picture>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border hairline-strong bg-teal/10 font-mono text-sm font-medium text-teal">
+                EF
+              </div>
               <div>
                 <p className="font-display text-base font-semibold text-ink">
                   Dr. Eric Hal Feintuch, D.C., CCSD
