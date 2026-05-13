@@ -1,29 +1,19 @@
-import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "@/components/shared/Reveal";
 
 export function FoundersLetter() {
-  const reduce = useReducedMotion();
-
   return (
-    <section className="relative overflow-hidden bg-background py-20 sm:py-28">
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
-        animate={reduce ? undefined : { scale: [1, 1.06, 1], opacity: [0.6, 0.9, 0.6] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-
+    <section className="relative overflow-hidden bg-canvas py-20 sm:py-28">
       <div className="container">
         <Reveal>
-          <div className="mx-auto max-w-3xl rounded-3xl border border-foreground/10 bg-card/80 p-8 shadow-soft backdrop-blur sm:p-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">
+          <div className="mx-auto max-w-3xl rounded-2xl border hairline-strong bg-white/[0.02] p-8 sm:p-12">
+            <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-teal">
               A letter from the founder
             </p>
-            <h2 className="mt-3 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl text-balance">
+            <h2 className="mt-4 font-display text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl md:text-4xl text-balance">
               I built ChiroVision because nobody else was going to.
             </h2>
 
-            <div className="prose prose-neutral mt-6 max-w-none font-serif text-lg leading-relaxed text-foreground/85">
+            <div className="prose prose-invert mt-6 max-w-none text-[17px] leading-relaxed text-dim">
               <p>
                 I have been at the table for forty years. I have read tens of thousands of films,
                 marked them with my own pencil, sat next to patients and shown them what their
@@ -38,14 +28,23 @@ export function FoundersLetter() {
             </div>
 
             <div className="mt-8 flex items-center gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary font-serif text-lg font-semibold text-primary-foreground shadow-soft">
-                EF
-              </div>
+              <picture>
+                <source type="image/webp" srcSet="/eric-real.webp" />
+                <img
+                  src="/eric-real.jpg"
+                  alt="Dr. Eric Hal Feintuch, D.C., CCSD, founder of Picture Perfect Health, LLC"
+                  loading="lazy"
+                  className="h-12 w-12 rounded-full border hairline-strong object-cover"
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).style.display = "none";
+                  }}
+                />
+              </picture>
               <div>
-                <p className="font-serif text-base font-semibold text-foreground">
+                <p className="font-display text-base font-semibold text-ink">
                   Dr. Eric Hal Feintuch, D.C., CCSD
                 </p>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-dim">
                   Founder, Picture Perfect Health, LLC
                 </p>
               </div>

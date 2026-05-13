@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   description?: string;
   align?: "left" | "center";
   className?: string;
-  /** "dark" inverts text for ink-on-cream sections. */
+  /** Kept for API compatibility. Site is dark-only now. */
   variant?: "default" | "dark";
 }
 
@@ -16,10 +16,7 @@ export function SectionHeading({
   description,
   align = "center",
   className,
-  variant = "default",
 }: SectionHeadingProps) {
-  const isDark = variant === "dark";
-
   return (
     <div
       className={cn(
@@ -29,30 +26,15 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p
-          className={cn(
-            "mb-4 text-xs font-semibold uppercase tracking-[0.32em]",
-            isDark ? "text-accent" : "text-primary",
-          )}
-        >
+        <p className="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-teal">
           {eyebrow}
         </p>
       )}
-      <h2
-        className={cn(
-          "font-serif text-balance text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl",
-          isDark ? "text-background" : "text-foreground",
-        )}
-      >
+      <h2 className="font-display text-balance text-3xl font-semibold leading-[1.05] tracking-tight text-ink sm:text-4xl md:text-5xl lg:text-[56px]">
         {title}
       </h2>
       {description && (
-        <p
-          className={cn(
-            "mt-6 text-lg leading-relaxed sm:text-xl",
-            isDark ? "text-background/75" : "text-muted-foreground",
-          )}
-        >
+        <p className="mt-5 text-pretty text-base leading-relaxed text-dim sm:text-lg">
           {description}
         </p>
       )}

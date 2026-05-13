@@ -82,7 +82,7 @@ export function ProductTour() {
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
 
   return (
-    <section id="tour" className="bg-background py-24 sm:py-32">
+    <section id="tour" className="bg-canvas py-24 sm:py-32">
       <div className="container">
         <Reveal>
           <SectionHeading
@@ -109,33 +109,26 @@ export function ProductTour() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={reduce ? undefined : { y: -6 }}
-              className={`group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft transition-all hover:border-primary/30 hover:shadow-[0_30px_60px_-20px_rgba(8,145,178,0.35)] ${t.span}`}
-              data-cursor="view"
+              className={`group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border hairline bg-white/[0.02] text-left transition-all hover:border-teal/30 hover:shadow-glow ${t.span}`}
             >
               {/* Image well: contain the screenshot, dark surface, generous padding */}
-              <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-[hsl(220_25%_12%)] p-4">
+              <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-black p-4">
                 <AssetImage
                   src={t.src}
                   alt={t.alt}
-                  className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
+                  className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
-                <span className="pointer-events-none absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
+                <span className="pointer-events-none absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border hairline-strong bg-canvas/70 text-ink opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
                   <Expand className="h-3.5 w-3.5" />
                 </span>
               </div>
-              <div className="flex flex-col gap-1.5 border-t border-border bg-card p-5">
-                <p className="font-serif text-lg font-semibold tracking-tight text-foreground">
+              <div className="flex flex-col gap-1.5 border-t hairline bg-canvas/50 p-5">
+                <p className="font-display text-lg font-semibold tracking-tight text-ink">
                   {t.title}
                 </p>
-                <p className="text-sm leading-relaxed text-muted-foreground">{t.body}</p>
+                <p className="text-sm leading-relaxed text-dim">{t.body}</p>
               </div>
-
-              {/* Hover glow overlay */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-tr from-primary/0 via-accent/0 to-primary/0 opacity-0 transition-opacity duration-500 group-hover:from-primary/10 group-hover:via-accent/10 group-hover:opacity-100"
-              />
             </motion.button>
           ))}
         </div>

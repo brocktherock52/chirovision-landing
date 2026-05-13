@@ -97,7 +97,7 @@ export function CustomCursor() {
           className="-translate-x-1/2 -translate-y-1/2 rounded-full border border-white/60 backdrop-blur-[2px]"
         >
           {s.label && (
-            <span className="flex h-full w-full items-center justify-center font-serif text-xs font-semibold uppercase tracking-[0.18em] text-white">
+            <span className="flex h-full w-full items-center justify-center font-mono text-xs font-semibold uppercase tracking-[0.18em] text-white">
               {s.label}
             </span>
           )}

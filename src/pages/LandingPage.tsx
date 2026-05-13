@@ -1,8 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
-import { LogoCloud } from "@/components/sections/LogoCloud";
-import { TrustBadgeRow } from "@/components/sections/TrustBadgeRow";
-import { FeatureGrid } from "@/components/sections/FeatureGrid";
+import { SocialProof } from "@/components/sections/SocialProof";
 import { ScreenshotShowcase } from "@/components/sections/ScreenshotShowcase";
+import { SpineDeepDive } from "@/components/sections/SpineDeepDive";
 import { ProductTour } from "@/components/sections/ProductTour";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { TestimonialStrip } from "@/components/sections/TestimonialStrip";
@@ -36,10 +35,9 @@ export default function LandingPage() {
       <JsonLd data={breadcrumbSchema()} />
 
       <Hero />
-      <LogoCloud />
-      <TrustBadgeRow />
-      <FeatureGrid />
+      <SocialProof />
       <ScreenshotShowcase />
+      <SpineDeepDive />
       <ProductTour />
       <HowItWorks />
       <TestimonialStrip />

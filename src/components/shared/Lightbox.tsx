@@ -59,7 +59,7 @@ export function Lightbox({ open, src, alt, caption, onClose }: LightboxProps) {
               <AssetImage src={src} alt={alt ?? "Screenshot"} className="h-auto w-full" />
             </div>
             {caption && (
-              <p className="mt-4 text-center font-serif text-base italic text-white/80">
+              <p className="mt-4 text-center font-mono text-xs uppercase tracking-[0.18em] text-white/70">
                 {caption}
               </p>
             )}

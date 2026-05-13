@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Menu, Stethoscope } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet";
-import { ThemeToggle } from "./ThemeToggle";
 import { siteConfig } from "@/lib/site-config";
 
 export function Header() {
@@ -10,7 +8,6 @@ export function Header() {
 
   const handleAnchor = (href: string) => {
     setOpen(false);
-    // Smooth-scroll to section
     requestAnimationFrame(() => {
       const id = href.replace("#", "");
       document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -18,14 +15,18 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/85 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div className="container flex h-16 items-center justify-between gap-4 md:h-20">
-        {/* Logo */}
-        <a href="#top" className="flex items-center gap-2" aria-label="ChiroVision home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <Stethoscope className="h-5 w-5" aria-hidden="true" />
+    <header className="sticky top-0 z-40 w-full border-b hairline bg-canvas/85 backdrop-blur supports-[backdrop-filter]:bg-canvas/70">
+      <div className="container flex h-14 items-center justify-between gap-4 md:h-16">
+        {/* Wordmark, Linear-style. Type-only. */}
+        <a
+          href="#top"
+          className="flex items-center gap-2"
+          aria-label="ChiroVision home"
+        >
+          <span className="flex h-7 w-7 items-center justify-center rounded-md border hairline-strong bg-white/[0.04] font-mono text-[12px] font-semibold text-teal">
+            CV
           </span>
-          <span className="font-serif text-lg font-semibold tracking-tight text-foreground">
+          <span className="font-display text-[15px] font-semibold tracking-tight text-ink">
             ChiroVision
           </span>
         </a>
@@ -40,7 +41,7 @@ export function Header() {
                 e.preventDefault();
                 handleAnchor(item.href);
               }}
-              className="rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-muted"
+              className="rounded-md px-3 py-2 text-sm font-medium text-dim transition hover:text-ink"
             >
               {item.label}
             </a>
@@ -49,33 +50,31 @@ export function Header() {
 
         {/* Right cluster */}
         <div className="flex items-center gap-2">
-          <ThemeToggle />
-          <Button
-            asChild
-            size="default"
-            className="hidden md:inline-flex"
+          <a
+            href="#start-trial"
+            onClick={(e) => {
+              e.preventDefault();
+              handleAnchor("#start-trial");
+            }}
+            className="hidden h-9 items-center rounded-full bg-teal px-4 text-[13px] font-semibold text-canvas transition hover:bg-teal-400 md:inline-flex"
           >
-            <a
-              href="#start-trial"
-              onClick={(e) => {
-                e.preventDefault();
-                handleAnchor("#start-trial");
-              }}
-            >
-              Start Free Trial
-            </a>
-          </Button>
+            Book a demo
+          </a>
 
           {/* Mobile menu */}
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu">
-                <Menu className="h-6 w-6" />
-              </Button>
+              <button
+                type="button"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md border hairline-strong bg-white/[0.03] text-ink md:hidden"
+                aria-label="Open menu"
+              >
+                <Menu className="h-5 w-5" />
+              </button>
             </SheetTrigger>
-            <SheetContent>
+            <SheetContent className="bg-canvas text-ink">
               <SheetHeader>
-                <SheetTitle>ChiroVision</SheetTitle>
+                <SheetTitle className="font-display text-ink">ChiroVision</SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-1" aria-label="Mobile navigation">
                 {siteConfig.nav.map((item) => (
@@ -86,28 +85,23 @@ export function Header() {
                       e.preventDefault();
                       handleAnchor(item.href);
                     }}
-                    className="rounded-md px-3 py-3 text-lg font-medium hover:bg-muted"
+                    className="rounded-md px-3 py-3 text-lg font-medium text-dim hover:text-ink"
                   >
                     {item.label}
                   </a>
                 ))}
               </nav>
-              <div className="mt-8 border-t border-border pt-6">
-                <Button
-                  asChild
-                  size="lg"
-                  className="w-full"
+              <div className="mt-8 border-t hairline pt-6">
+                <a
+                  href="#start-trial"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAnchor("#start-trial");
+                  }}
+                  className="flex h-12 w-full items-center justify-center rounded-full bg-teal px-4 text-sm font-semibold text-canvas"
                 >
-                  <a
-                    href="#start-trial"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleAnchor("#start-trial");
-                    }}
-                  >
-                    Start Free Trial
-                  </a>
-                </Button>
+                  Book a demo
+                </a>
               </div>
             </SheetContent>
           </Sheet>

@@ -74,23 +74,23 @@ export function TrialSignupForm() {
   const plans = [siteConfig.plans.annual, siteConfig.plans.monthly] as const;
 
   return (
-    <section id="start-trial" className="bg-section-gradient py-20 sm:py-28">
+    <section id="start-trial" className="bg-canvas py-24 sm:py-32">
       <div className="container">
         <div className="mx-auto max-w-6xl">
-          <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft">
+          <div className="overflow-hidden rounded-2xl border hairline-strong bg-white/[0.02]">
             <div className="grid lg:grid-cols-[7fr,5fr]">
               {/* LEFT, multi-step form */}
               <div className="p-8 sm:p-12">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-primary" />
-                  <p className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  <Sparkles className="h-4 w-4 text-teal" />
+                  <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-teal">
                     Start your free trial
                   </p>
                 </div>
-                <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl text-balance">
+                <h2 className="mt-3 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl md:text-4xl text-balance">
                   Try ChiroVision free for 10 days.
                 </h2>
-                <p className="mt-2 text-base text-muted-foreground">
+                <p className="mt-3 text-base text-dim">
                   No credit card. Cancel anytime during your{" "}
                   <strong>{siteConfig.trial.days}-day FREE trial</strong> period.
                 </p>
@@ -107,10 +107,10 @@ export function TrialSignupForm() {
                             className={cn(
                               "flex h-7 w-7 items-center justify-center rounded-full text-xs font-semibold",
                               done
-                                ? "bg-primary text-primary-foreground"
+                                ? "bg-teal text-teal-foreground"
                                 : active
-                                  ? "bg-primary/15 text-primary ring-2 ring-primary/30"
-                                  : "bg-muted text-muted-foreground",
+                                  ? "bg-teal/15 text-teal ring-2 ring-teal/30"
+                                  : "bg-white/5 text-dim",
                             )}
                             animate={active && !reduce ? { scale: [1, 1.06, 1] } : undefined}
                             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
@@ -120,7 +120,7 @@ export function TrialSignupForm() {
                           <span
                             className={cn(
                               "text-xs font-semibold uppercase tracking-[0.16em]",
-                              active ? "text-foreground" : "text-muted-foreground",
+                              active ? "text-ink" : "text-dim",
                             )}
                           >
                             {label}
@@ -149,14 +149,14 @@ export function TrialSignupForm() {
                         initial={{ scale: reduce ? 1 : 0.4, rotate: reduce ? 0 : -8 }}
                         animate={{ scale: 1, rotate: 0 }}
                         transition={{ type: "spring", stiffness: 220, damping: 14 }}
-                        className="flex h-20 w-20 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-soft"
+                        className="flex h-20 w-20 items-center justify-center rounded-full bg-teal text-teal-foreground shadow-soft"
                       >
                         <Check className="h-10 w-10" strokeWidth={2.5} />
                       </motion.div>
-                      <h3 className="mt-6 font-serif text-2xl font-semibold text-foreground">
+                      <h3 className="mt-6 font-display text-2xl font-semibold text-ink">
                         You are in.
                       </h3>
-                      <p className="mt-2 max-w-md text-base text-muted-foreground">
+                      <p className="mt-2 max-w-md text-base text-dim">
                         Check your inbox. Dr. Feintuch's team will activate your trial within one
                         business day.
                       </p>
@@ -279,33 +279,33 @@ export function TrialSignupForm() {
                                   className={cn(
                                     "relative rounded-xl border-2 p-5 text-left transition-all",
                                     isSelected
-                                      ? "border-primary bg-primary/5 shadow-soft"
-                                      : "border-border bg-background hover:border-primary/40",
+                                      ? "border-teal bg-teal/5 shadow-soft"
+                                      : "border-white/10 bg-white/[0.02] hover:border-teal/40",
                                   )}
                                 >
                                   {plan.recommended && (
-                                    <span className="absolute -top-3 right-4 rounded-full bg-accent px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-accent-foreground">
+                                    <span className="absolute -top-3 right-4 rounded-full bg-amber px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-canvas">
                                       Best value
                                     </span>
                                   )}
                                   <div className="flex items-start justify-between">
-                                    <span className="font-serif text-lg font-semibold text-foreground">
+                                    <span className="font-display text-lg font-semibold text-ink">
                                       {plan.label}
                                     </span>
                                     {isSelected && (
-                                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-teal text-teal-foreground">
                                         <Check className="h-3 w-3" />
                                       </span>
                                     )}
                                   </div>
                                   <div className="mt-3 flex items-baseline gap-1">
-                                    <span className="font-serif text-3xl font-semibold text-foreground">
+                                    <span className="font-display text-3xl font-semibold text-ink">
                                       {plan.monthlyEquivalent}
                                     </span>
-                                    <span className="text-sm text-muted-foreground">/month</span>
+                                    <span className="text-sm text-dim">/month</span>
                                   </div>
-                                  <p className="mt-1 text-xs font-semibold text-primary">{plan.savings}</p>
-                                  <p className="mt-2 text-xs text-muted-foreground">{plan.tagline}</p>
+                                  <p className="mt-1 text-xs font-semibold text-teal">{plan.savings}</p>
+                                  <p className="mt-2 text-xs text-dim">{plan.tagline}</p>
                                 </button>
                               );
                             })}
@@ -324,16 +324,16 @@ export function TrialSignupForm() {
                             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                             className="space-y-4"
                           >
-                            <div className="rounded-xl border border-border bg-background p-5">
-                              <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+                            <div className="rounded-xl border hairline bg-white/[0.02] p-5">
+                              <p className="text-xs font-semibold uppercase tracking-wider text-teal">
                                 You selected
                               </p>
-                              <p className="mt-1 font-serif text-xl font-semibold text-foreground">
+                              <p className="mt-1 font-display text-xl font-semibold text-ink">
                                 {selectedPlan === "annual"
                                   ? `Annual at ${siteConfig.plans.annual.monthlyEquivalent}/mo`
                                   : `Monthly at ${siteConfig.plans.monthly.monthlyEquivalent}/mo`}
                               </p>
-                              <p className="mt-2 text-sm text-muted-foreground">
+                              <p className="mt-2 text-sm text-dim">
                                 10-day free trial. No card required. We will never auto-charge a
                                 card we do not have.
                               </p>
@@ -343,12 +343,12 @@ export function TrialSignupForm() {
                               <input
                                 type="checkbox"
                                 id="consent"
-                                className="mt-1 h-4 w-4 rounded border-input text-primary focus:ring-2 focus:ring-ring"
+                                className="mt-1 h-4 w-4 rounded border-input text-teal focus:ring-2 focus:ring-ring"
                                 {...register("consent")}
                               />
                               <Label
                                 htmlFor="consent"
-                                className="text-sm font-normal leading-relaxed text-muted-foreground"
+                                className="text-sm font-normal leading-relaxed text-dim"
                               >
                                 I agree to ChiroVision's terms of service and authorize{" "}
                                 {siteConfig.parentCompany.name} to contact me about my trial.
@@ -385,11 +385,11 @@ export function TrialSignupForm() {
                         )}
                       </div>
 
-                      <p className="text-center text-xs text-muted-foreground">
+                      <p className="text-center text-xs text-dim">
                         Already have an account?{" "}
                         <a
                           href={`mailto:${siteConfig.supportEmail}`}
-                          className="font-semibold text-primary hover:underline"
+                          className="font-semibold text-teal hover:underline"
                         >
                           Contact support
                         </a>
@@ -400,12 +400,12 @@ export function TrialSignupForm() {
               </div>
 
               {/* RIGHT, marketing panel */}
-              <div className="relative hidden bg-hero-gradient p-12 text-white lg:flex lg:flex-col lg:justify-between">
+              <div className="relative hidden bg-canvas p-12 text-ink border-l hairline lg:flex lg:flex-col lg:justify-between">
                 <div>
-                  <h3 className="font-serif text-3xl font-semibold tracking-tight text-balance">
+                  <h3 className="font-display text-3xl font-semibold tracking-tight text-balance">
                     See your patients differently in 10 days.
                   </h3>
-                  <p className="mt-4 text-base leading-relaxed text-white/90">
+                  <p className="mt-4 text-base leading-relaxed text-dim">
                     ChiroVision is the diagnostic imaging and patient management tool built by a
                     chiropractor dedicated to helping patients make structural and functional
                     once-in-a-lifetime changes. Try every feature free for 10 days, no card required.
@@ -413,7 +413,7 @@ export function TrialSignupForm() {
                 </div>
 
                 <div className="my-8">
-                  <div className="overflow-hidden rounded-xl border border-white/20 bg-white/10 shadow-2xl backdrop-blur">
+                  <div className="overflow-hidden rounded-xl border hairline-strong bg-black">
                     <picture>
                       <source type="image/webp" srcSet="/hero-chirovision-laptop.webp" />
                       <img
@@ -428,19 +428,19 @@ export function TrialSignupForm() {
 
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                     <span>Full feature access during trial, no tier limits</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                     <span>Local-only image processing, patient data never leaves your computer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                     <span>Browser-based, nothing to install, works on any computer</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                    <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-teal" />
                     <span>Built and supported by Picture Perfect Health, LLC</span>
                   </li>
                 </ul>

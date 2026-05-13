@@ -1,5 +1,4 @@
 import { Lock, Cpu, Stethoscope, FileLock2 } from "lucide-react";
-import { Card } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal, Stagger, staggerItem } from "@/components/shared/Reveal";
 import { motion } from "framer-motion";
@@ -13,7 +12,7 @@ const pillars = [
   {
     icon: Cpu,
     title: "Browser-native rendering",
-    body: "ChiroVision runs on WebGL, WebAssembly, and the browser's native canvas pipeline. No installer, no IT support call, no plug-ins to maintain. It works on Windows, Mac, Chromebook, and Linux equally.",
+    body: "ChiroVision runs on WebGL, WebAssembly, and the browser's native canvas pipeline. No installer, no IT support call, no plug-ins to maintain. Works on Windows, Mac, Chromebook, and Linux equally.",
   },
   {
     icon: Stethoscope,
@@ -27,20 +26,15 @@ const pillars = [
   },
 ];
 
-/**
- * Methodology / About section. Provides E-E-A-T signals for search engines
- * (experience, expertise, authority, trust) and gives buyers the structural
- * reassurance they need before sharing patient data with a new tool.
- */
 export function Methodology() {
   return (
-    <section id="methodology" className="bg-muted/30 py-20 sm:py-28">
+    <section id="methodology" className="bg-canvas py-20 sm:py-28">
       <div className="container">
         <Reveal>
           <SectionHeading
             eyebrow="Methodology"
             title="How ChiroVision keeps patient data on your computer."
-            description="Four structural commitments that separate ChiroVision from cloud-stored EHR systems. Each one is a deliberate design choice, not a configuration toggle."
+            description="Four structural commitments that separate ChiroVision from cloud-stored EHR systems. Each is a deliberate design choice, not a configuration toggle."
           />
         </Reveal>
 
@@ -49,24 +43,24 @@ export function Methodology() {
             const Icon = p.icon;
             return (
               <motion.div key={p.title} variants={staggerItem}>
-                <Card className="h-full p-7 shadow-soft transition-all hover:border-primary/30">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Icon className="h-6 w-6" aria-hidden="true" />
+                <div className="h-full rounded-xl border hairline bg-white/[0.02] p-7 transition-all hover:border-teal/30">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg border hairline-strong bg-teal/10 text-teal">
+                    <Icon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                  <h3 className="font-serif text-xl font-semibold text-foreground">
+                  <h3 className="font-display text-xl font-semibold text-ink">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-3 text-base leading-relaxed text-dim">
                     {p.body}
                   </p>
-                </Card>
+                </div>
               </motion.div>
             );
           })}
         </Stagger>
 
         <Reveal delay={0.1}>
-          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-muted-foreground">
+          <p className="mx-auto mt-10 max-w-2xl text-center text-sm text-dim">
             ChiroVision is operated by Picture Perfect Health, LLC, founded in 2006 by
             Dr. Eric Hal Feintuch, D.C., CCSD. Forty years of chiropractic practice
             informs every clinical decision in the platform.

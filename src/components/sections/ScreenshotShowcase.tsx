@@ -96,7 +96,7 @@ export function ScreenshotShowcase() {
   );
 
   return (
-    <section className="bg-muted/30 py-20 sm:py-28">
+    <section className="bg-canvas py-20 sm:py-28">
       <div className="container">
         <Reveal>
           <SectionHeading
@@ -114,13 +114,12 @@ export function ScreenshotShowcase() {
               type="button"
               key={s.label}
               onClick={() => setLightboxIdx(i)}
-              className="group overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft"
-              data-cursor="view"
+              className="group overflow-hidden rounded-2xl border hairline bg-white/[0.02] text-left"
             >
               <AssetImage src={s.src} alt={s.alt} className="aspect-[4/3] object-cover object-top" />
               <div className="p-5">
-                <p className="font-serif text-base font-semibold text-foreground">{s.label}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{s.caption}</p>
+                <p className="font-display text-base font-semibold text-ink">{s.label}</p>
+                <p className="mt-1 text-sm text-dim">{s.caption}</p>
               </div>
             </button>
           ))}
@@ -167,7 +166,7 @@ function ActiveCaption({ progressIndex }: { progressIndex: MotionValue<number> }
 
   return (
     <div className="relative min-h-[280px]">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+      <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.22em] text-teal">
         {String(active + 1).padStart(2, "0")} / {String(SLIDES.length).padStart(2, "0")} . {slide.meta}
       </p>
       <AnimatePresence mode="wait">
@@ -181,11 +180,11 @@ function ActiveCaption({ progressIndex }: { progressIndex: MotionValue<number> }
           <SplitChars
             as="h3"
             text={slide.label}
-            className="font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl"
+            className="font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl md:text-5xl"
             duration={0.6}
             stagger={0.022}
           />
-          <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground sm:text-lg">
+          <p className="mt-5 max-w-md text-base leading-relaxed text-dim sm:text-lg">
             {slide.caption}
           </p>
         </motion.div>
@@ -208,7 +207,7 @@ function DotIndicator({
         <span
           key={i}
           className={`h-1.5 rounded-full transition-all duration-500 ease-out ${
-            i === active ? "w-10 bg-primary" : "w-1.5 bg-foreground/25"
+            i === active ? "w-10 bg-teal" : "w-1.5 bg-white/15"
           }`}
         />
       ))}
@@ -232,7 +231,7 @@ function DiscreteSlide({
   const active = useMotionValueState(progressIndex);
   const slide = slides[active] ?? slides[0];
   return (
-    <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_100px_-30px_rgba(0,0,0,0.35)]">
+    <div className="group relative overflow-hidden rounded-2xl border hairline-strong bg-black shadow-[0_40px_100px_-30px_rgba(0,0,0,0.6)]">
       <AnimatePresence mode="wait" initial={false}>
         <motion.button
           type="button"
@@ -243,7 +242,6 @@ function DiscreteSlide({
           exit={{ opacity: 0, scale: 0.99 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="relative block w-full cursor-pointer"
-          data-cursor="view"
           aria-label={`Open ${slide.label} preview`}
         >
           <AssetImage
@@ -251,7 +249,7 @@ function DiscreteSlide({
             alt={slide.alt}
             className="aspect-[16/10] w-full object-cover object-top"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas/25 via-transparent to-transparent" />
           <span className="pointer-events-none absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
             <Expand className="h-4 w-4" />
           </span>

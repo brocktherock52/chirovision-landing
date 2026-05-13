@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 const KEY = "cv_intro_seen_v1";
 
 /**
- * First-visit intro: cream curtain wipes from top, oversized Fraunces wordmark
+ * First-visit intro: dark curtain wipes from top, oversized display wordmark
  * scales in and out, then content reveals beneath. Skipped on return visits
  * via sessionStorage, and on prefers-reduced-motion.
  */
@@ -62,11 +62,11 @@ export function IntroReveal() {
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.4em] text-foreground/50">
               Picture Perfect Health, LLC
             </p>
-            <h1 className="font-serif text-6xl font-semibold leading-none tracking-tighter text-foreground sm:text-8xl md:text-[10rem]">
+            <h1 className="font-display text-6xl font-semibold leading-none tracking-tighter text-foreground sm:text-8xl md:text-[10rem]">
               ChiroVision
             </h1>
             <div className="mx-auto mt-6 h-px w-12 bg-foreground/30" />
-            <p className="mt-4 font-serif text-base italic text-foreground/60 sm:text-lg">
+            <p className="mt-4 font-display text-base italic text-foreground/60 sm:text-lg">
               Forty years at the table.
             </p>
           </motion.div>

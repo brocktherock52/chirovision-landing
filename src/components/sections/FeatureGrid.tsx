@@ -38,7 +38,7 @@ export function FeatureGrid() {
                     <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                       <FIcon className="h-5 w-5" aria-hidden="true" />
                     </div>
-                    <h3 className="relative inline-block font-serif text-lg font-semibold text-foreground">
+                    <h3 className="relative inline-block font-display text-lg font-semibold text-foreground">
                       {feature.title}
                       <span
                         aria-hidden="true"
@@ -72,7 +72,7 @@ export function FeatureGrid() {
                   <p className="text-xs font-semibold uppercase tracking-widest text-primary">
                     The privacy promise
                   </p>
-                  <h3 className="mt-1 font-serif text-2xl font-semibold text-foreground sm:text-3xl">
+                  <h3 className="mt-1 font-display text-2xl font-semibold text-foreground sm:text-3xl">
                     {localProcessingFeature.title}
                   </h3>
                   <p className="mt-2 max-w-2xl text-base leading-relaxed text-muted-foreground">
