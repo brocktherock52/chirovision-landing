@@ -92,8 +92,9 @@ export function ProductTour() {
           />
         </Reveal>
 
-        {/* Bento grid */}
-        <div className="mt-16 grid auto-rows-[220px] grid-cols-1 gap-4 sm:auto-rows-[240px] sm:grid-cols-2 md:grid-cols-6 md:gap-5">
+        {/* Bento grid. Each card is fixed-tall so screenshots display in full
+            with proper letterboxing rather than cropping their tops. */}
+        <div className="mt-16 grid auto-rows-[360px] grid-cols-1 gap-5 sm:auto-rows-[400px] sm:grid-cols-2 md:grid-cols-6 md:gap-6">
           {tour.map((t, i) => (
             <motion.button
               type="button"
@@ -111,18 +112,19 @@ export function ProductTour() {
               className={`group relative isolate flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card text-left shadow-soft transition-all hover:border-primary/30 hover:shadow-[0_30px_60px_-20px_rgba(8,145,178,0.35)] ${t.span}`}
               data-cursor="view"
             >
-              <div className="relative h-3/5 overflow-hidden bg-muted">
+              {/* Image well: contain the screenshot, dark surface, generous padding */}
+              <div className="relative flex flex-1 items-center justify-center overflow-hidden bg-[hsl(220_25%_12%)] p-4">
                 <AssetImage
                   src={t.src}
                   alt={t.alt}
-                  className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
+                  className="max-h-full max-w-full object-contain transition-transform duration-700 group-hover:scale-[1.04]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-card/30 via-transparent to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <span className="pointer-events-none absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-white/30 bg-black/50 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
                   <Expand className="h-3.5 w-3.5" />
                 </span>
               </div>
-              <div className="flex flex-1 flex-col gap-1.5 p-5">
+              <div className="flex flex-col gap-1.5 border-t border-border bg-card p-5">
                 <p className="font-serif text-lg font-semibold tracking-tight text-foreground">
                   {t.title}
                 </p>

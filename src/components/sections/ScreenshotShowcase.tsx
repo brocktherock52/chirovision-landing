@@ -136,36 +136,14 @@ export function ScreenshotShowcase() {
               <div className="grid items-center gap-10 lg:grid-cols-[5fr,7fr]">
                 <ActiveCaption progressIndex={progressIndex} />
 
-                <div className="relative overflow-hidden rounded-3xl border border-border bg-card/40 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.35)]">
-                  <motion.div
-                    className="flex"
-                    style={{ x: trackX, width: `${SLIDES.length * 100}%` }}
-                  >
-                    {SLIDES.map((s, i) => (
-                      <button
-                        type="button"
-                        onClick={() => setLightboxIdx(i)}
-                        key={s.label}
-                        className="relative flex-shrink-0 cursor-pointer"
-                        style={{ width: `${100 / SLIDES.length}%` }}
-                        data-cursor="view"
-                        aria-label={`Open ${s.label} preview`}
-                      >
-                        <AssetImage
-                          src={s.src}
-                          alt={s.alt}
-                          className="aspect-[4/3] w-full object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
-                        />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent" />
-                        <span className="pointer-events-none absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
-                          <Expand className="h-4 w-4" />
-                        </span>
-                      </button>
-                    ))}
-                  </motion.div>
-
-                  <DotIndicator progressIndex={progressIndex} count={SLIDES.length} />
-                </div>
+                {/* Single-slide framed viewer. Snaps to the slide for the
+                    current scroll band rather than continuously panning, so the
+                    user never sees two half-cropped slides during a transition. */}
+                <DiscreteSlide
+                  progressIndex={progressIndex}
+                  slides={SLIDES}
+                  onOpen={(i) => setLightboxIdx(i)}
+                />
               </div>
             </div>
           </div>
@@ -234,6 +212,52 @@ function DotIndicator({
           }`}
         />
       ))}
+    </div>
+  );
+}
+
+/* Single-slide viewer that snaps to the current scroll band. AnimatePresence
+ * cross-fades the active slide so the user never sees half-cropped neighbors
+ * during a scroll transition.
+ */
+function DiscreteSlide({
+  progressIndex,
+  slides,
+  onOpen,
+}: {
+  progressIndex: MotionValue<number>;
+  slides: Slide[];
+  onOpen: (i: number) => void;
+}) {
+  const active = useMotionValueState(progressIndex);
+  const slide = slides[active] ?? slides[0];
+  return (
+    <div className="group relative overflow-hidden rounded-3xl border border-border bg-card shadow-[0_40px_100px_-30px_rgba(0,0,0,0.35)]">
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.button
+          type="button"
+          key={slide.label}
+          onClick={() => onOpen(active)}
+          initial={{ opacity: 0, scale: 1.02 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.99 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative block w-full cursor-pointer"
+          data-cursor="view"
+          aria-label={`Open ${slide.label} preview`}
+        >
+          <AssetImage
+            src={slide.src}
+            alt={slide.alt}
+            className="aspect-[16/10] w-full object-cover object-top"
+          />
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/25 via-transparent to-transparent" />
+          <span className="pointer-events-none absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/30 bg-black/40 text-white opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
+            <Expand className="h-4 w-4" />
+          </span>
+        </motion.button>
+      </AnimatePresence>
+      <DotIndicator progressIndex={progressIndex} count={slides.length} />
     </div>
   );
 }
